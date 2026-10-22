@@ -4,6 +4,10 @@ TuolaFlow for Visual Studio Code 是一個以 Git 分享的團隊需求看板。
 
 預設看板資料儲存在工作區根目錄的 `board.json`，可納入 Git 與團隊共用。也可以從看板管理選單選擇其他資料檔案。
 
+## 資料與隱私
+
+TuolaFlow 只讀取及寫入你選擇的看板 JSON 檔案，不會將看板資料傳送到網路服務，也不會收集遙測資料。
+
 ## 開啟看板
 
 - 點選左側 Activity Bar 的 TuolaFlow 圖示。
