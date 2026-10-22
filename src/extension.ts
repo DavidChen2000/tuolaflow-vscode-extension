@@ -43,10 +43,15 @@ export function activate(context: vscode.ExtensionContext): void {
             return element;
         },
         getChildren() {
-            return [new vscode.TreeItem(
-                '正在開啟 TuolaFlow 任務看板…',
+            const item = new vscode.TreeItem(
+                '開啟 TuolaFlow 任務看板',
                 vscode.TreeItemCollapsibleState.None
-            )];
+            );
+            item.command = {
+                command: 'tuolaflow.openBoard',
+                title: '開啟 TuolaFlow 任務看板'
+            };
+            return [item];
         }
     };
 
@@ -54,32 +59,13 @@ export function activate(context: vscode.ExtensionContext): void {
         'tuolaflow.board',
         { treeDataProvider: boardViewProvider }
     );
-    let openingBoardFromActivityBar = false;
-    const openBoardFromActivityBar = async (): Promise<void> => {
-        if (openingBoardFromActivityBar) return;
-        openingBoardFromActivityBar = true;
-        try {
-            await vscode.commands.executeCommand('tuolaflow.openBoard');
-        } catch (error) {
-            void vscode.window.showErrorMessage(
-                error instanceof Error ? error.message : String(error)
-            );
-        } finally {
-            try {
-                if (boardView.visible) {
-                    await vscode.commands.executeCommand(
-                        'workbench.action.toggleSidebarVisibility'
-                    );
-                }
-            } finally {
-                openingBoardFromActivityBar = false;
-            }
-        }
-    };
-
     const openBoardCommand = vscode.commands.registerCommand(
         'tuolaflow.openBoard',
         async () => {
+            if (activeBoardPanel) {
+                activeBoardPanel.reveal(vscode.ViewColumn.One);
+                return;
+            }
             const panel = vscode.window.createWebviewPanel(
                 'tuolaflow.boardPanel',
                 'TuolaFlow 任務看板',
@@ -418,18 +404,8 @@ export function activate(context: vscode.ExtensionContext): void {
         }
     );
 
-    const activityBarVisibility = boardView.onDidChangeVisibility((event) => {
-        if (event.visible) {
-            void openBoardFromActivityBar();
-        }
-    });
-    if (boardView.visible) {
-        void openBoardFromActivityBar();
-    }
-
     context.subscriptions.push(
         boardView,
-        activityBarVisibility,
         openBoardCommand,
         searchTasksCommand
     );

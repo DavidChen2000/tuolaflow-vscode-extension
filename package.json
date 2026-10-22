@@ -1,10 +1,11 @@
 
 {
   "name": "tuolaflow",
-  "displayName": "TuolaFlow",
+  "displayName": "TuolaFlow for VS Code",
   "description": "TuolaFlow for Visual Studio Code: a Git-based team requirement Kanban board.",
   "version": "0.1.0",
   "publisher": "tuolaflow",
+  "icon": "resources/tuolaflow-marketplace-icon.png",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
