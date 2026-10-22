@@ -1,0 +1,16 @@
+.git/**
+.vscode/**
+.vscode-test/**
+node_modules/**
+src/**
+tests/**
+docs/**
+share/**
+out/**/*.map
+*.vsix
+board.json
+BU_board.json
+PLAN.md
+討論計畫.md
+package-lock.json
+tsconfig.json

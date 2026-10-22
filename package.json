@@ -1,0 +1,77 @@
+
+{
+  "name": "tuolaflow-vscode",
+  "displayName": "TuolaFlowVSCode",
+  "description": "A Git-based team requirement Kanban board for VS Code.",
+  "version": "0.1.0",
+  "publisher": "tuolaflow",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:tuolaflow.board"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tuolaflow",
+          "title": "TuolaFlow",
+          "icon": "resources/tuolaflow.svg"
+        }
+      ]
+    },
+    "views": {
+      "tuolaflow": [
+        {
+          "id": "tuolaflow.board",
+          "name": "任務看板",
+          "contextualTitle": "TuolaFlow 任務看板"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "tuolaflow.openBoard",
+          "when": "view == tuolaflow.board",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "tuolaflow.openBoard",
+        "title": "TuolaFlow: 開啟任務看板",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "tuolaflow.searchTasks",
+        "title": "TuolaFlow: 搜尋任務標題"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "tuolaflow.searchTasks",
+        "key": "ctrl+f",
+        "when": "activeWebviewPanelId == tuolaflow.boardPanel"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test tests/boardStorage.test.cjs",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  }
+}

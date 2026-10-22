@@ -1,0 +1,20 @@
+# Dependencies and generated build output
+node_modules/
+out/
+*.vsix
+
+# Local editor and operating system files
+.vscode/
+.vscode-test/
+.DS_Store
+Thumbs.db
+
+# Local board data
+/board.json
+/BU_board.json
+/share/board.json
+
+# Internal planning and development documents
+/PLAN.md
+/討論計畫.md
+/docs/
