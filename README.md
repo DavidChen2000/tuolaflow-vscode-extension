@@ -1,6 +1,8 @@
 # TuolaFlow
 
-在 VS Code 中使用看板整理任務。
+TuolaFlow for Visual Studio Code 是一個以 Git 分享的團隊需求看板。使用看板整理任務、追蹤狀態，並管理標籤、優先序與到期日。
+
+預設看板資料儲存在工作區根目錄的 `board.json`，可納入 Git 與團隊共用。也可以從看板管理選單選擇其他資料檔案。
 
 ## 開啟看板
 

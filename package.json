@@ -2,11 +2,25 @@
 {
   "name": "tuolaflow",
   "displayName": "TuolaFlow",
-  "description": "A Git-based team requirement Kanban board for VS Code.",
+  "description": "TuolaFlow for Visual Studio Code: a Git-based team requirement Kanban board.",
   "version": "0.1.0",
   "publisher": "tuolaflow",
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidChen2000/tuolaflow-vscode-extension.git"
+  },
+  "homepage": "https://github.com/DavidChen2000/tuolaflow-vscode-extension#readme",
+  "bugs": {
+    "url": "https://github.com/DavidChen2000/tuolaflow-vscode-extension/issues"
+  },
+  "keywords": [
+    "kanban",
+    "task-management",
+    "team",
+    "git",
+    "board"
+  ],
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -66,6 +80,7 @@
   },
   "scripts": {
     "compile": "tsc -p ./",
+    "vscode:prepublish": "npm run compile",
     "test": "npm run compile && node --test tests/boardStorage.test.cjs",
     "watch": "tsc -watch -p ./"
   },
