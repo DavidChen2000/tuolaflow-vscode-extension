@@ -31,7 +31,7 @@ export interface Board {
 }
 
 /**
- * TuolaFlowVSCode MVP 產品規則。
+ * TuolaFlow MVP 產品規則。
  * 狀態數量限制集中管理，不散落在 UI 或服務中。
  */
 export const PRODUCT_RULES = {

@@ -1,7 +1,7 @@
 
 {
-  "name": "tuolaflow-vscode",
-  "displayName": "TuolaFlowVSCode",
+  "name": "tuolaflow",
+  "displayName": "TuolaFlow",
   "description": "A Git-based team requirement Kanban board for VS Code.",
   "version": "0.1.0",
   "publisher": "tuolaflow",

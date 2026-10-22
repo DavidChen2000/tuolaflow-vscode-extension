@@ -1172,7 +1172,7 @@ ${notice ? `<div class="notice" role="status">${escapeHtml(notice)}</div>` : ''}
 <div class="message operation-message" id="operationMessage"
     role="status" aria-live="polite"></div>
 <main class="board">${columns}</main>
-<footer class="footer">TuolaFlowVSCode · 共 ${board.tickets.length} 個任務</footer>
+<footer class="footer">TuolaFlow · 共 ${board.tickets.length} 個任務</footer>
 
 <script>
 const vscode = acquireVsCodeApi();
